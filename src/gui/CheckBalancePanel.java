@@ -1,12 +1,12 @@
 package gui;
 
 
-public class CreateAccountPanel extends MyPanel{
+public class CheckBalancePanel extends MyPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	public CreateAccountPanel ( MainPage mp) {
-		super("createAccount", "Create Account", mp);
+	public CheckBalancePanel ( MainPage mp) {
+		super("checkBalance", "Check Balance", mp);
 		int fH = mp.config.frameHeight, 
 				fW = mp.config.frameWidth,
 				bW = mp.config.buttonWidth,
@@ -20,14 +20,14 @@ public class CreateAccountPanel extends MyPanel{
 		int pointerY = cH-bH/2 - 2*bHg - 2*bH;
 		
 		
-		MyLabel nameLbl = new MyLabel("Name:", this.mp);
-		nameLbl.setLocation(pointerX, pointerY);
-		this.add(nameLbl);
+		MyLabel idLbl = new MyLabel("ID:", this.mp);
+		idLbl.setLocation(pointerX, pointerY);
+		this.add(idLbl);
 		
-		MyTextField nameTxtF = new MyTextField("", this.mp);
+		MyTextField idTxtF = new MyTextField("", this.mp);
 		pointerX += bW + bWg;
-		nameTxtF.setLocation(pointerX, pointerY);
-		this.add(nameTxtF);
+		idTxtF.setLocation(pointerX, pointerY);
+		this.add(idTxtF);
 
 		MyLabel pswLbl = new MyLabel("Password:", this.mp);
 		pointerX -= bW + bWg;
@@ -39,7 +39,7 @@ public class CreateAccountPanel extends MyPanel{
 		pointerX += bW + bWg;
 		pswTxtF.setLocation(pointerX, pointerY);
 		this.add(pswTxtF);
-		
+		/*
 		MyLabel emailLbl = new MyLabel("Email:", this.mp);
 		pointerX -= bW + bWg;
 		pointerY += bH + bHg;
@@ -61,7 +61,7 @@ public class CreateAccountPanel extends MyPanel{
 		pointerX += bW + bWg;
 		addressTxtF.setLocation(pointerX, pointerY);
 		this.add(addressTxtF);
-		
+		*/
 
 		MyButton submitButt = new MyButton("Submit", this.mp);
 		pointerY += bH + bHg;

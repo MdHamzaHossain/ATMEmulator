@@ -9,7 +9,7 @@ public class TitleLabel extends JLabel {
 	public MainPage mp;
 	public TitleLabel(String name, MainPage m) {
 		super(name);
-		
+		this.setHorizontalAlignment(CENTER);
 		mp=m;
 		this.setBounds(
 				this.mp.config.frameWidth/2-this.mp.config.titleWidth/2,

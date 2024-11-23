@@ -14,8 +14,14 @@ public class MainPage extends JFrame {
 	public MenuPanel menuPanel;
 	public Config config = (new Config());
 	public MainPage () {
+		
 		new MenuPanel(this);
 		new CreateAccountPanel(this);
+		new CheckBalancePanel(this);
+		new DepositPanel(this);
+		new WithdrawPanel(this);
+		new LoanPanel(this);
+		new TransferPanel(this);
 		
 		this.setPanelOn("menu");
 		this.setLayout(null);

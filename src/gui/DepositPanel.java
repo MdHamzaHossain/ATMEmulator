@@ -1,12 +1,12 @@
 package gui;
 
 
-public class CreateAccountPanel extends MyPanel{
+public class DepositPanel extends MyPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	public CreateAccountPanel ( MainPage mp) {
-		super("createAccount", "Create Account", mp);
+	public DepositPanel ( MainPage mp) {
+		super("deposit", "Deposit", mp);
 		int fH = mp.config.frameHeight, 
 				fW = mp.config.frameWidth,
 				bW = mp.config.buttonWidth,
@@ -20,14 +20,14 @@ public class CreateAccountPanel extends MyPanel{
 		int pointerY = cH-bH/2 - 2*bHg - 2*bH;
 		
 		
-		MyLabel nameLbl = new MyLabel("Name:", this.mp);
-		nameLbl.setLocation(pointerX, pointerY);
-		this.add(nameLbl);
+		MyLabel idLbl = new MyLabel("ID:", this.mp);
+		idLbl.setLocation(pointerX, pointerY);
+		this.add(idLbl);
 		
-		MyTextField nameTxtF = new MyTextField("", this.mp);
+		MyTextField idTxtF = new MyTextField("", this.mp);
 		pointerX += bW + bWg;
-		nameTxtF.setLocation(pointerX, pointerY);
-		this.add(nameTxtF);
+		idTxtF.setLocation(pointerX, pointerY);
+		this.add(idTxtF);
 
 		MyLabel pswLbl = new MyLabel("Password:", this.mp);
 		pointerX -= bW + bWg;
@@ -40,17 +40,18 @@ public class CreateAccountPanel extends MyPanel{
 		pswTxtF.setLocation(pointerX, pointerY);
 		this.add(pswTxtF);
 		
-		MyLabel emailLbl = new MyLabel("Email:", this.mp);
+		MyLabel amountLbl = new MyLabel("Amount:", this.mp);
 		pointerX -= bW + bWg;
 		pointerY += bH + bHg;
-		emailLbl.setLocation(pointerX, pointerY);
-		this.add(emailLbl);
+		amountLbl.setLocation(pointerX, pointerY);
+		this.add(amountLbl);
 		
-		MyTextField emailTxtF = new MyTextField("", this.mp);
+		MyTextField amountTxtF = new MyTextField("", this.mp);
 		pointerX += bW + bWg;
-		emailTxtF.setLocation(pointerX, pointerY);
-		this.add(emailTxtF);
+		amountTxtF.setLocation(pointerX, pointerY);
+		this.add(amountTxtF);
 		
+		/*
 		MyLabel addressLbl = new MyLabel("Address:", this.mp);
 		pointerX -= bW + bWg;
 		pointerY += bH + bHg;
@@ -61,7 +62,7 @@ public class CreateAccountPanel extends MyPanel{
 		pointerX += bW + bWg;
 		addressTxtF.setLocation(pointerX, pointerY);
 		this.add(addressTxtF);
-		
+		*/
 
 		MyButton submitButt = new MyButton("Submit", this.mp);
 		pointerY += bH + bHg;
