@@ -11,5 +11,6 @@ public class MyPanel extends JPanel{
 		this.setSize(this.mp.config.frameWidth, this.mp.config.frameHeight);
 		this.setLayout(null);
 		this.mp.pages.put(name, this);
+		this.setVisible(false);
 	}
 }

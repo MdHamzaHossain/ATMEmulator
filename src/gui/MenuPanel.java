@@ -12,6 +12,7 @@ public class MenuPanel extends MyPanel{
 				cH = fH/2, 
 				cW = fW/2;
 		
+		
 		TitleLabel t = new TitleLabel("ATM EMULATOR", mp);
 		this.add(t);
 		
