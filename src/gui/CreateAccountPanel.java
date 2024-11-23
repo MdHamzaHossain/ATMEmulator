@@ -6,7 +6,7 @@ public class CreateAccountPanel extends MyPanel{
 	private static final long serialVersionUID = 1L;
 
 	public CreateAccountPanel ( MainPage mp) {
-		super("createAccount", mp);
+		super("createAccount", "Create Account", mp);
 		int fH = mp.config.frameHeight, 
 				fW = mp.config.frameWidth,
 				bW = mp.config.buttonWidth,
@@ -78,38 +78,6 @@ public class CreateAccountPanel extends MyPanel{
 		outputTxt.setEditable(false);
 		outputTxt.setBounds( pointerX, pointerY,2*bW + bWg, bH);
 		this.add(outputTxt);
-		/*
-		MyButton chBalButt = new MyButton("Check Balance",this.mp);
-		pointerX += bW + bWg;
-		chBalButt.setLocation(pointerX,pointerY);
-		this.add(chBalButt);
-		
-
-		MyButton depButt = new MyButton("Deposit",this.mp);
-		pointerY += bH + bHg ;
-		pointerX = cW - bW/2 - bWg - bW;
-		depButt.setLocation(pointerX,pointerY);
-		this.add(depButt);
-		
-		MyButton wDButt = new MyButton("Withdraw",this.mp);
-		pointerX += bW + bWg;
-		wDButt.setLocation(pointerX,pointerY);
-		this.add(wDButt);
-		
-		
-		
-		MyButton trButt = new MyButton("Transfer",this.mp);
-		pointerX += bW + bWg;
-		trButt.setLocation(pointerX,pointerY);
-		this.add(trButt);
-		
-		MyButton loanButt = new MyButton("Loan",this.mp);
-		pointerX = cW - bW/2;
-		pointerY = cH + bH/2 + bHg; 
-		loanButt.setLocation(pointerX,pointerY);
-		this.add(loanButt);
-		
-		*/
 		
 	}
 }

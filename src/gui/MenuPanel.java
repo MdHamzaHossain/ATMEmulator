@@ -1,8 +1,14 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class MenuPanel extends MyPanel{
+
+	private static final long serialVersionUID = 1L;
+
 	public MenuPanel ( MainPage mp) {
-		super("menu", mp);
+		super("menu", "ATM EMULATOR", mp);
 		int fH = mp.config.frameHeight, 
 				fW = mp.config.frameWidth,
 				bW = mp.config.buttonWidth,
@@ -12,10 +18,6 @@ public class MenuPanel extends MyPanel{
 				cH = fH/2, 
 				cW = fW/2;
 		
-		
-		TitleLabel t = new TitleLabel("ATM EMULATOR", mp);
-		this.add(t);
-		
 		int pointerX = cW-bWg/2 - bW;
 		int pointerY = cH-bH/2 - bHg - bH;
 		
@@ -24,15 +26,10 @@ public class MenuPanel extends MyPanel{
 		crAccButt.setLocation(pointerX, pointerY);
 		this.add(crAccButt);
 		
-
-		
-		
-		
 		MyButton chBalButt = new MyButton("Check Balance",this.mp);
 		pointerX += bW + bWg;
 		chBalButt.setLocation(pointerX,pointerY);
 		this.add(chBalButt);
-		
 
 		MyButton depButt = new MyButton("Deposit",this.mp);
 		pointerY += bH + bHg ;
@@ -46,7 +43,6 @@ public class MenuPanel extends MyPanel{
 		this.add(wDButt);
 		
 		
-		
 		MyButton trButt = new MyButton("Transfer",this.mp);
 		pointerX += bW + bWg;
 		trButt.setLocation(pointerX,pointerY);
@@ -57,6 +53,55 @@ public class MenuPanel extends MyPanel{
 		pointerY = cH + bH/2 + bHg; 
 		loanButt.setLocation(pointerX,pointerY);
 		this.add(loanButt);
+		
+		crAccButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				crAccButt.mp.setPanelOn("createAccount");
+			}
+		});
+		
+		chBalButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				chBalButt.mp.setPanelOn("checkBalance");
+			}
+		});
+		
+		depButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				depButt.mp.setPanelOn("deposit");
+			}
+		});
+		
+		wDButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				wDButt.mp.setPanelOn("withdraw");
+			}
+		});
+		
+		trButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				trButt.mp.setPanelOn("transfer");
+			}
+		});
+		
+		loanButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				trButt.mp.setPanelOn("loan");
+			}
+		});
+		
 		
 		
 		
