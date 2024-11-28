@@ -1,5 +1,11 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import errors.MyException;
+
+import structuraldata.Account;
 
 public class CreateAccountPanel extends MyPanel{
 
@@ -76,5 +82,29 @@ public class CreateAccountPanel extends MyPanel{
 		outputTxt.setBounds( pointerX, pointerY,2*bW + bWg, bH);
 		this.add(outputTxt);
 		
+		
+		submitButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nameIn = nameTxtF.getText(),
+						passIn = pswTxtF.getText().trim(),
+						addIn = addressTxtF.getText(),
+						emailIn = emailTxtF.getText();
+				try {
+					
+					if(nameIn.isBlank() || passIn.isBlank() || addIn.isBlank() || emailIn.isBlank() ) throw new Exception("Valid input");
+					Account acc = mp.bank.createAccount(nameIn, passIn, emailIn, addIn);
+					outputTxt.setText("Your ID is "+ acc.id);
+				
+				} catch (Exception e1) {
+					outputTxt.setText("Enter valid Input");
+				} catch(MyException e1) {
+					outputTxt.setText(e1.getMessage());
+				}
+				
+				
+			}
+		});
 	}
 }

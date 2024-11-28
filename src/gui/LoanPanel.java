@@ -1,5 +1,10 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import errors.MyException;
+import structuraldata.Account;
 
 public class LoanPanel extends MyPanel{
 
@@ -51,18 +56,7 @@ public class LoanPanel extends MyPanel{
 		amountTxtF.setLocation(pointerX, pointerY);
 		this.add(amountTxtF);
 		
-		/*
-		MyLabel addressLbl = new MyLabel("Address:", this.mp);
-		pointerX -= bW + bWg;
-		pointerY += bH + bHg;
-		addressLbl.setLocation(pointerX, pointerY);
-		this.add(addressLbl);
 		
-		MyTextField addressTxtF = new MyTextField("", this.mp);
-		pointerX += bW + bWg;
-		addressTxtF.setLocation(pointerX, pointerY);
-		this.add(addressTxtF);
-		*/
 
 		MyButton submitButt = new MyButton("Submit", this.mp);
 		pointerY += bH + bHg;
@@ -77,5 +71,34 @@ public class LoanPanel extends MyPanel{
 		outputTxt.setBounds( pointerX, pointerY,2*bW + bWg, bH);
 		this.add(outputTxt);
 		
+		
+		submitButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String idIn = idTxtF.getText().trim(),
+						passIn = pswTxtF.getText().trim(),
+						depIn = amountTxtF.getText().trim();
+				
+				
+				try {
+					if(depIn.isBlank()  || idIn.isBlank() || passIn.isBlank()  ) throw new Exception("Valid input");
+					int id = Integer.parseInt(idIn);
+					int amount = Integer.parseInt(depIn);
+
+					Account acc = mp.bank.findAccount(id);
+					acc.bank.takeLoan(id, passIn, amount);
+					outputTxt.setText("Your balance is "+ acc.balance);
+			
+				} catch (Exception e1) {
+					outputTxt.setText("Enter valid Input");
+				} catch (MyException e1) {
+					outputTxt.setText(e1.getMessage());
+
+				}
+				
+				
+			}
+		});
 	}
 }

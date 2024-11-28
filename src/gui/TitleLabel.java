@@ -11,6 +11,7 @@ public class TitleLabel extends JLabel {
 		super(name);
 		this.setHorizontalAlignment(CENTER);
 		mp=m;
+		// Set sizes
 		this.setBounds(
 				this.mp.config.frameWidth/2-this.mp.config.titleWidth/2,
 				this.mp.config.buttonHeightGap, 

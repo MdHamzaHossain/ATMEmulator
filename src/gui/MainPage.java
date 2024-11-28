@@ -1,20 +1,27 @@
 package gui;
 
 import javax.swing.*;
+
+import structuraldata.Bank;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class MainPage extends JFrame {
     
 	private static final long serialVersionUID = 1L;
-	
+	public Bank bank;
+	// Pages
 	public Map<String, MyPanel> pages = new HashMap<>();
-	public MenuPanel menuPanel;
 	public Config config = (new Config());
-	public MainPage () {
-		
+	public MainPage (Bank b) {
+		this.bank = b;
+		/**
+		 * 
+		 * Instantiate every page
+		 * 
+		 */
 		new MenuPanel(this);
 		new CreateAccountPanel(this);
 		new CheckBalancePanel(this);
@@ -31,6 +38,7 @@ public class MainPage extends JFrame {
 
 	}
 	/**
+	 * Page switcher
 	 * @param panName
 	 * menu
 	 * createAccount
@@ -43,13 +51,16 @@ public class MainPage extends JFrame {
 	public void setPanelOn(String panName) {
 		MyPanel myPan = this.pages.get(panName);
 		if(myPan == null) throw new Error(panName + " is not a valid panel");
-		this.pages.forEach((k, v) -> {v.setVisible(false);v.remove(v);});
-		this.add(myPan);
-		myPan.setVisible(true);
-	}
-	public static void main(String[] args) {
-		new MainPage();
 		
+		this.pages.forEach((k, v) -> {
+			// Remove every page
+			v.setVisible(false);
+			v.remove(v);
+		});
+		
+		this.add(myPan);
+		// Only have selected panel to be visible
+		myPan.setVisible(true);
 	}
 
 }

@@ -1,7 +1,11 @@
 package structuraldata;
 
+import errors.MyException;
+import errors.NotEnoughBalanceException;
+import errors.WrongPasswordException;
+
 public class Account {
-	private int debt = 0;
+	public int debt = 0;
 	public int id;
 	public int balance=0;
 	private String password;
@@ -15,9 +19,16 @@ public class Account {
 		email=e;
 		address=a;
 		bank = b;
+		balance = 100;
 	}
-	private boolean validatePassword (String pw) {
-		return (password == pw );
+	public void validatePassword (String pw) throws MyException {
+
+		if  (!password.equals(pw)) throw new MyException("Enter the valid password!");
+		
+	}
+	public void validateBalance(int amount) throws MyException{
+		if(amount > balance) throw new MyException("Your balance in insufficient. Balance: " + this.balance);
+		
 	}
 	
 }

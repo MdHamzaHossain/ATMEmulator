@@ -11,6 +11,7 @@ public class MyPanel extends JPanel{
 	public MyPanel(String name, String title, MainPage mp) {
 		this.mp = mp;
 		this.setName(name);
+		// Set size of frame
 		this.setSize(this.mp.config.frameWidth, this.mp.config.frameHeight);
 		this.setLayout(null);
 		this.mp.pages.put(name, this);
@@ -21,6 +22,7 @@ public class MyPanel extends JPanel{
 		
 		if(name != "menu") {
 			MyButton homeButt = new MyButton("Back To Home", mp);
+			// Top left corner
 			homeButt.setLocation(0,0);
 			this.add(homeButt);
 			homeButt.addActionListener(new ActionListener() {

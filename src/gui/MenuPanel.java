@@ -54,6 +54,12 @@ public class MenuPanel extends MyPanel{
 		loanButt.setLocation(pointerX,pointerY);
 		this.add(loanButt);
 		
+		
+		/**
+		 * 
+		 * MENU PAGE SWITCHER
+		 * 
+		 */
 		crAccButt.addActionListener(new ActionListener() {
 			
 			@Override

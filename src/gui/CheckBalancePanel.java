@@ -1,5 +1,10 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import errors.MyException;
+import structuraldata.Account;
 
 public class CheckBalancePanel extends MyPanel{
 
@@ -75,6 +80,35 @@ public class CheckBalancePanel extends MyPanel{
 		outputTxt.setEditable(false);
 		outputTxt.setBounds( pointerX, pointerY,2*bW + bWg, bH);
 		this.add(outputTxt);
+		
+		submitButt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String idIn = idTxtF.getText().trim(),
+						passIn = pswTxtF.getText().trim();
+				int id = Integer.parseInt(idIn);
+				
+				try {
+					if(idIn.isBlank() || passIn.isBlank()  ) throw new Exception("Valid input");
+					Account acc = mp.bank.findAccount(id);
+					acc.validatePassword(passIn);
+					String resultText = "Your balance is "+ acc.balance;
+					if(acc.debt > 0) {
+						resultText += (" and debt is " + acc.debt );
+					}
+					outputTxt.setText(resultText);
+			
+				} catch (Exception e1) {
+					outputTxt.setText("Enter valid Input");
+				} catch (MyException e1) {
+					outputTxt.setText(e1.getMessage());
+
+				}
+				
+				
+			}
+		});
 		
 	}
 }
